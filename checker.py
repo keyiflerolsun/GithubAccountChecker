@@ -77,9 +77,6 @@ class GitChecker(object):
                 f.write(json.dumps(a_z, indent=2, ensure_ascii=False, sort_keys=False))
 
     def liste_ver(self, combo_dosya, cikti) -> None:
-        if not cikti:
-            cikti = "KekikAkademi"
-
         with open(combo_dosya, 'r+') as combo:
             combo_liste = combo.readlines()
 
@@ -94,7 +91,7 @@ class GitChecker(object):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("combo", help="Combo 'kullanıcı_adı:şifre' biçiminde kullanıcılar ve şifreler içeren bir listedir.")
-parser.add_argument("--cikti", help="Yalnızca dosyanın adı. Uzantı, vermeyin.. (Varsayılan: --cikti KekikAkademi)", action="store_true")
+parser.add_argument("--cikti", help="Yalnızca dosyanın adı. Uzantı, vermeyin.. (Varsayılan: --cikti KekikAkademi)", default="KekikAkademi")
 
 args = parser.parse_args()
 
